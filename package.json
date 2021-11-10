@@ -1,0 +1,25 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "This app will serve as an end-to-end software development portfolio.",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noahssarcastic/portfolio.git"
+  },
+  "keywords": [
+    "node",
+    "portfolio"
+  ],
+  "author": "Noah Iniguez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/noahssarcastic/portfolio/issues"
+  },
+  "homepage": "https://github.com/noahssarcastic/portfolio#readme"
+}
