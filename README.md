@@ -42,3 +42,29 @@ Some extra goodies:
 - ADR tools
 
 These will all be set up before any development work starts because it will be easier to start using them from the beginning rather than integrating them later. I will try to write a blog post about each of these tools and their uses at some point soon.
+
+# MVP Progress
+
+Since the MVP is somewhat involved I will be documenting progress by leaving a short log for every major commit below.
+
+## chore: Setup linter and formatter configuration.
+
+I wanted to make sure that my linter, formatter, and pre-commit hook were all working before any major code got committed. It is easier to only check in clean code rather than refactor dirty code later in my opinion.
+
+This involved setting up my **eslintrc** and **tsconfig** files with my preferred settings. I like to use Typescript with strict checks and use the Airbnb style guide so I set those settings as needed. I later fixed both of these configurations to use different settings for my React app and Express server as they use different versions of Javascript.
+
+Afterwards I set-up **prettier** which allows a team to keep to a consistent format within a codebase. Prettier handles odds and ends such as semi-colons, quote style, tab style, etc.
+
+Next I set-up **lint-staged** which when paired with **husky** allows you to create a pre-commit hook that lints and formats the code only staged for commit. If you aren't familiar with git-hooks, they are just scripts that can be automated to run during typical git lifecycle events such as a commit or push. With a pre-commit hook I'm able to automate my style and format guidelines by requiring eslint and prettier to be run before each commit.
+
+## chore: Setup react boilerplate.
+
+This is self explanatory but necessary. I wanted to have some static files ready for serving when I set-up the express server in order to debug and also have some .js files ready for linting to make sure my eslintrc and tsconfig settings were all in working order. This also gives me the availability to focus solely on **babel** and **webpack** in a future commit.
+
+## chore: Add node scripts for linting and formatting.
+
+I wanted to have some easy scripts for checking my style and formatting so I added some useful scripts into my package.json.
+
+## feat(server): ✨ Implement base express server.
+
+I added a basic express server with logging and file serving from the public directory. The logging library I used was morgan and I set it up to run in development mode for right now. The express server runs on **ts-node** allowing me to use typescript on the server-side as well. I also setup a **watch** script using **nodemon** in order to allow for hot reloads during development. There was an issue with using nodemon and ts-node right out of the box which required me to overwrite the base exec property for nodemon. Specifying the exec command explicitly in **nodemon.json** seemed to do the trick without requiring a global install of ts-node.
