@@ -1,0 +1,5 @@
+{
+  "signal": "SIGKILL",
+  "exec": "yarn run ts-node",
+  "verbose": true
+}

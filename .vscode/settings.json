@@ -6,5 +6,6 @@
     "pinst",
     "postpublish",
     "PSQL"
-  ]
+  ],
+  "conventionalCommits.scopes": ["express", "server"]
 }
