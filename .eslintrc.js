@@ -1,45 +1,62 @@
 module.exports = {
   env: {
-    browser: true,
-    es2021: true,
+    commonjs: true,
   },
-  extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'airbnb',
-    'prettier',
-  ],
-  parser: '@typescript-eslint/parser',
+  extends: ['eslint:recommended', 'airbnb-base', 'prettier'],
   parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
     ecmaVersion: 13,
-    sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint'],
-  rules: {
-    'react/function-component-definition': [
-      2,
-      {
-        namedComponents: 'arrow-function',
-        unnamedComponents: 'arrow-function',
-      },
-    ],
-  },
-
   overrides: [
+    {
+      files: ['src/**/*'],
+      env: {
+        browser: true,
+        es2021: true,
+      },
+      extends: [
+        'eslint:recommended',
+        'plugin:react/recommended',
+        'airbnb',
+        'airbnb-typescript',
+        'prettier',
+      ],
+      parser: '@typescript-eslint/parser',
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+        ecmaVersion: 13,
+        sourceType: 'module',
+        project: 'src/tsconfig.json',
+      },
+      plugins: ['react', '@typescript-eslint'],
+      rules: {
+        'react/function-component-definition': [
+          2,
+          {
+            namedComponents: 'arrow-function',
+            unnamedComponents: 'arrow-function',
+          },
+        ],
+      },
+    },
     {
       files: ['server/**/*'],
       env: {
-        browser: true,
+        node: true,
         commonjs: true,
         es2021: true,
       },
-      extends: ['eslint:recommended', 'airbnb-base', 'prettier'],
+      extends: [
+        'eslint:recommended',
+        'airbnb-base',
+        'airbnb-typescript/base',
+        'prettier',
+      ],
       parser: '@typescript-eslint/parser',
       parserOptions: {
         ecmaVersion: 13,
+        project: 'server/tsconfig.json',
       },
       plugins: ['@typescript-eslint'],
       rules: {},
