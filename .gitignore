@@ -37,6 +37,7 @@ package-lock.json
 
 # If you're not using Zero-Installs:
 .pnp.*
+.yarn
 .yarn/*
 !.yarn/patches
 !.yarn/plugins

@@ -61,5 +61,26 @@ module.exports = {
       plugins: ['@typescript-eslint'],
       rules: {},
     },
+    {
+      files: ['webpack.config.ts'],
+      env: {
+        node: true,
+        commonjs: true,
+        es2021: true,
+      },
+      extends: [
+        'eslint:recommended',
+        'airbnb-base',
+        'airbnb-typescript/base',
+        'prettier',
+      ],
+      parser: '@typescript-eslint/parser',
+      parserOptions: {
+        ecmaVersion: 13,
+        project: './tsconfig.json',
+      },
+      plugins: ['@typescript-eslint'],
+      rules: {},
+    },
   ],
 }
