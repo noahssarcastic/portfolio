@@ -1,3 +1,4 @@
+// Cannot convert to ES module because babel can only read Commonjs
 module.exports = {
   env: {
     commonjs: true,
@@ -62,7 +63,7 @@ module.exports = {
       rules: {},
     },
     {
-      files: ['webpack.config.ts'],
+      files: ['webpack.*.ts'],
       env: {
         node: true,
         commonjs: true,

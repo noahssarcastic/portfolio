@@ -1,7 +1,7 @@
 import * as path from 'path'
 import * as webpack from 'webpack'
-// in case you run into any typescript error when configuring `devServer`
-// import 'webpack-dev-server'
+
+import HtmlWebpackPlugin from 'html-webpack-plugin'
 
 const config: webpack.Configuration = {
   mode: 'development',
@@ -9,9 +9,13 @@ const config: webpack.Configuration = {
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/',
+    clean: true,
   },
-  devtool: 'inline-source-map',
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/assets/index.html',
+    } as HtmlWebpackPlugin.Options),
+  ],
   module: {
     rules: [
       {
@@ -19,13 +23,6 @@ const config: webpack.Configuration = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: [
-              '@babel/preset-env',
-              '@babel/preset-typescript',
-              '@babel/preset-react',
-            ],
-          },
         },
       },
     ],
