@@ -1,9 +1,12 @@
 import * as path from 'path'
-import * as webpack from 'webpack'
 
+// Set as devDependencies since these are only used on build
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { Configuration } from 'webpack'
+// eslint-disable-next-line import/no-extraneous-dependencies
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 
-const config: webpack.Configuration = {
+const config: Configuration = {
   mode: 'development',
   entry: './src/index.tsx',
   output: {

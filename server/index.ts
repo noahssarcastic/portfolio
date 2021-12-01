@@ -1,7 +1,12 @@
 import express from 'express'
 import logger from 'morgan'
+
+// Set as devDependencies since this is only run in the development env
+// eslint-disable-next-line import/no-extraneous-dependencies
 import webpack from 'webpack'
+// eslint-disable-next-line import/no-extraneous-dependencies
 import webpackDevMiddleware from 'webpack-dev-middleware'
+
 import config from '../webpack.dev'
 
 const app = express()
