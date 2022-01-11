@@ -7,6 +7,7 @@
     "start": "NODE_ENV=development ts-node ./server/index.ts",
     "start:prod": "NODE_ENV=production ts-node --transpile-only ./server/index.ts",
     "watch": "NODE_ENV=development nodemon ./server/index.ts",
+    "watch:docker": "NODE_ENV=development nodemon -L ./server/index.ts",
     "build": "NODE_ENV=development webpack --config webpack.dev.ts",
     "build:prod": "NODE_ENV=production webpack --config webpack.prod.ts",
     "lint": "eslint . --ext '.js, .jsx, .ts, .tsx'",
