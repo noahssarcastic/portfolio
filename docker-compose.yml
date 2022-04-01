@@ -9,4 +9,14 @@ services:
     ports:
       - 3000:3000 
     command: yarn watch:docker
-  
+  db:
+    image : mongo:5.0
+    container_name: mongodb
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    # volumes:
+    #   - ./mongodb/database:/data/db
+    ports:
+      - 27017:27017
+    restart: unless-stopped

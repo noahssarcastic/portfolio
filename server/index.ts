@@ -12,6 +12,8 @@ import config from '../webpack.dev'
 const app = express()
 const port = 3000
 
+// const api = require('./api')
+
 if (process.env.NODE_ENV === 'development') {
   const compiler = webpack(config)
 
